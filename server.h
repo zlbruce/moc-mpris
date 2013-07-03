@@ -9,6 +9,7 @@ extern "C" {
 
 #define CLIENTS_MAX	10
 
+void set_server_quit();
 int server_init (int debug, int foreground);
 void server_loop (int list_sock);
 void server_error (const char *msg);

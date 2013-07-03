@@ -11,6 +11,8 @@ mocp_SOURCES = log.c \
 	       server.c \
 	       server.h \
 	       main.c \
+		   mpris.c \
+		   mpris_gc.c \
 	       common.c \
 	       common.h \
 	       playlist.c \
@@ -83,6 +85,7 @@ EXTRA_mocp_SOURCES = gnugetopt.h \
 		     jack.c \
 		     jack.h
 man_MANS = mocp.1
+mocp_CFLAGS = @EXTRA_CFLAGS@
 mocp_LDADD = @EXTRA_OBJS@ -lltdl
 mocp_DEPENDENCIES = @EXTRA_OBJS@
 mocp_LDFLAGS = @EXTRA_LIBS@ $(RCC_LIBS) -export-dynamic

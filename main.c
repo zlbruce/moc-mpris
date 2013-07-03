@@ -46,6 +46,7 @@
 #include "files.h"
 #include "rcc.h"
 
+#include "mpris.h"
 struct parameters
 {
 	char *config_file;
@@ -176,7 +177,9 @@ static void start_moc (const struct parameters *params, lists_t_strs *args)
 				close (notify_pipe[0]);
 				close (notify_pipe[1]);
 				signal (SIGCHLD, sig_chld);
+                mpris_init();
 				server_loop (list_sock);
+                mpris_quit();
 				options_free ();
 				decoder_cleanup ();
 				io_cleanup ();
@@ -203,7 +206,9 @@ static void start_moc (const struct parameters *params, lists_t_strs *args)
 	else if (params->foreground && params->only_server) {
 		set_me_server ();
 		list_sock = server_init (params->debug, params->foreground);
+        mpris_init();
 		server_loop (list_sock);
+        mpris_quit();
 	}
 
 	if (!params->only_server) {
