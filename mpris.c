@@ -136,6 +136,7 @@ static void on_bus_acquired (GDBusConnection *connection,
     org_mpris_media_player2_set_can_raise(mpris_media_interface, FALSE);
     org_mpris_media_player2_set_has_track_list(mpris_media_interface, FALSE);
     org_mpris_media_player2_set_identity(mpris_media_interface, "MOC");
+    org_mpris_media_player2_set_desktop_entry(mpris_media_interface, "moc");
     org_mpris_media_player2_set_supported_uri_schemes(mpris_media_interface, uri_schemes);
     org_mpris_media_player2_set_supported_mime_types(mpris_media_interface, mime_type);
     //org_mpris_media_player2_set_desktop_entry (OrgMprisMediaPlayer2 *object, const gchar *value);
